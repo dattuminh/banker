@@ -1,10 +1,11 @@
 #include <iostream>
 #include <vector>
+#include <string>
 
 //to make passing these around easier
 struct coord {
     //x, y, wealth
-    int x, y, w
+    int x, y, w;
 };
 
 class Graph {
@@ -14,8 +15,9 @@ class Graph {
   
   public:
     //reads in a graph from standard input
-    Graph();
+    //space is the character being used as a blank space
+    Graph(char space = ' ');
     
     //returns the character at the given coordinate
-    char at(coord);
+    char at(coord c);
 }
