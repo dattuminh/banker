@@ -1,7 +1,10 @@
 #include <iostream>
 #include <vector>
+#include <stdlib>
 
 #include "graph.h"
+
+using namespace std;
 
 enum action { UP, RIGHT, DOWN, LEFT };
 const int NUM_ACTIONS = 4;
@@ -9,6 +12,7 @@ const action[] = [UP, RIGHT, DOWN, LEFT];
 
 class Table {
   private:
+    int length, width;
     int coins; //how many coins are in the graph - ie the table's 3rd dimension
     Graph *g; //the actual graph with the information. Pointer bc it could be pretty big
     float gamma, epsilon, delta; //statistical stuff
@@ -16,7 +20,7 @@ class Table {
 
   public:
     //default constructor. Created a table with all utilities initialized to 0
-    Table(int coins, Graph *g, float gamma, float epsilon);
+    Table(Graph *in_g, float in_gamma, float in_epsilon);
     
     //given another table, uses its values to generate a new, more correct table
     //note that this calculates the delta value - the max difference between this table's

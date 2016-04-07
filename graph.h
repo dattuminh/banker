@@ -2,15 +2,19 @@
 #include <vector>
 #include <string>
 
+using namespace std;
+
 //to make passing these around easier
 struct coord {
-    //x, y, wealth
-    int x, y, w;
+    //y, x, wealth
+    int y, x, w;
 };
+
+
 
 class Graph {
   private:
-    int length, width;
+    int length, width, coins;
     vector<vector<char>> graph;
   
   public:
@@ -20,4 +24,10 @@ class Graph {
     
     //returns the character at the given coordinate
     char at(coord c);
+    char at(int y, int x, int w);
+    
+    //getters
+    int getLength() { return length; }
+    int getWidth() { return width; }
+    int getCoins { return coins;}
 }
